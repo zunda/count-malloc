@@ -1,0 +1,28 @@
+= count-malloc
+A small C code to overwrap the system's malloc/free to check
+memory leaks.
+
+== Usage
+Add the following to the source code:
+  #ifdef COUNT_MALLOC
+  #include <count-malloc.h>
+  #endif
+
+Add count-malloc.c to the C source files to be compiled, and
+compile the files with -DCOUNT_MALLOC.
+
+The resultant executable counts mallocs and frees in the source
+code.
+
+To see details of malloc(), realloc(), and free()s on stderr
+while execution, set an environment variable as
+  export MALLOC_COUNT_SHOW
+or
+  setenv MALLOC_COUNT_SHOW
+
+== License
+Copyright (C) 2005 by zunda <zunda at freeshell.org>
+
+Permission is granted for use, copying, modification,
+distribution, and distribution of modified versions of this work
+under the terms of GPL version 2 or later.
