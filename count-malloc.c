@@ -166,7 +166,7 @@ counting_malloc(size_t size, const char *func, const char *file, const int line)
 	r = malloc(size);
 	if (r) _add(r, func, file, line, size);
 	if (getenv("MALLOC_COUNT_SHOW"))
-		fprintf(stderr, "! %3d %9p - %ld bytes in %s %s:%d\n", malloc_count, r, size, func, file, line);
+		fprintf(stderr, "! %3d %9p - %d bytes in %s %s:%d\n", malloc_count, r, size, func, file, line);
 	return r;
 }
 
@@ -198,7 +198,7 @@ counting_realloc(void *ptr, size_t size, const char *func, const char *file, con
 				fprintf(stderr, "! %3d %9p - reallocated in %s %s:%d\n", malloc_count, ptr, func, file, line);
 		}
 	if (getenv("MALLOC_COUNT_SHOW"))
-		fprintf(stderr, "! %3d %9p - %ld bytes in %s %s:%d\n", malloc_count, r, size, func, file, line);
+		fprintf(stderr, "! %3d %9p - %d bytes in %s %s:%d\n", malloc_count, r, size, func, file, line);
 	if (r) _add(r, func, file, line, size);
 	return r;
 }
